@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>密码列表</title>
+    <style>
+        .list {
+            margin: 0 auto;
+        }
+
+        .list > .row {
+            margin-bottom: 10px;
+        }
+
+        .list > .row li {
+            margin-right: 10px;
+            width: 200px;
+            text-align: center;
+            word-break: break-word;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<a href="/" rel="nofollow">首页</a>
+<ul class="list" style="list-style: none">
+    <li class="row">
+        <ul style="display: flex;list-style: none">
+            <li>账号</li>
+            <li>密码</li>
+            <li>描述</li>
+            <li>链接</li>
+        </ul>
+    </li>
+    {% for pwd_obj in pwds %}
+        <li class="row">
+            <ul style="display: flex;list-style: none">
+                <li>{{ pwd_obj.username }}</li>
+                <li>{{ pwd_obj.pwd }}</li>
+                <li>{{ pwd_obj.desc }}</li>
+                <li><a href="{{ pwd_obj.link }}" target="_blank">{{ pwd_obj.link }}</a></li>
+            </ul>
+        </li>
+    {% endfor %}
+
+</ul>
+
+</body>
+</html>
